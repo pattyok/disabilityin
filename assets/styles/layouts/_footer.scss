@@ -1,0 +1,205 @@
+footer.footer-main {
+  line-height: 1.5;
+
+  .section {
+    padding: 3rem 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .hidden-in-footer {
+    display: none;
+  }
+
+  .social-links-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .copyright {
+    font-size: 0.85rem;
+  }
+
+  .col-footer-main {
+    margin-bottom: 1rem;
+  }
+}
+
+.to-top-wrapper {
+  border: none;
+  width: 100%;
+  position: relative;
+}
+
+.to-top {
+  padding: 16px 20px;
+  position: fixed;
+  margin-bottom: 22px;
+  bottom: 0px;
+  right: 10px;
+  opacity: 0;
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, transform 1s;
+  cursor: pointer;
+  z-index: 2000;
+  background-color: $blue;
+  color: #fff;
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  &.is-static {
+    position: absolute;
+    right: 10px !important;
+    bottom: 0;
+  }
+}
+
+.footer-upper {
+  background-color: $blue;
+  color: #fff;
+  line-height: 1.5rem;
+
+  .col {
+    padding-bottom: 2.5rem;
+    flex-basis: 100%;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  //gform - not using but keep until we're sure about the cc plugin
+  .gform_heading {
+    padding-bottom: 1.5rem;
+  }
+
+  form {
+    margin: 0;
+
+    .gform_body {
+      margin: 0 -8px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      border: none;
+      width: 100%;
+    }
+
+    .gfield.email-input {
+      padding: 0 8px;
+    }
+
+    .multi_column {
+      width: 100%;
+      padding: 0;
+      margin-top: 0px;
+      float: left;
+
+      .ginput_complex {
+        >span {
+          width: 100%;
+          float: left;
+          padding: 0 8px;
+          margin-top: 15px;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  }
+
+  .ctct-button {
+    display: none;
+  }
+
+  .g-recaptcha {
+    clear: both;
+  }
+
+  .ctct-disclosure {
+    display: none;
+  }
+
+  .ctct-form-field-submit {
+    clear: both;
+  }
+}
+
+
+
+@include media-breakpoint-up(md) {
+  footer.footer-main {
+    .section {
+      padding: 5rem 2rem;
+    }
+  }
+
+  .footer-upper {
+    .col {
+      flex-basis: 0;
+      padding-bottom: 0;
+    }
+
+    .widget-1 {
+      margin-right: 2rem;
+    }
+
+    .widget-2 {
+      margin-left: 2rem;
+    }
+
+    .full-width-widget {
+      margin: 0 auto !important;
+      max-width: 60%;
+    }
+
+    form {
+      .multi_column {
+        .ginput_complex {
+          >span {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .ctct-form-field {
+    width: 50%;
+    float: left;
+    padding-right: 10px;
+  }
+
+  footer.footer-main {
+    .col-footer-main {
+      margin-bottom: 0rem;
+    }
+
+    .social-links-wrapper {
+      margin-bottom: 2rem;
+    }
+
+    .footer-lower {
+      .container {
+        padding: 0 3rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {}
+
+@include media-breakpoint-up(xl) {
+  .to-top.is-static {
+    right: 0 !important;
+  }
+}

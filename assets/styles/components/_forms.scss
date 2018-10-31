@@ -1,0 +1,76 @@
+.gform_heading {
+  padding-bottom: 1rem;
+}
+
+ul.gform_fields {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+input[type="text"],
+textarea,
+input[type="email"] {
+  border: 1px solid $gray-lightest;
+  border-radius: 0px;
+  padding: 0.75rem;
+  font-family: 'Rubik', Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.875rem;
+  margin-right: 1rem;
+}
+
+.gform_button,
+input[type="submit"] {
+  @extend .btn-green;
+  margin: 0;
+}
+
+.gform_fields {
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+// Search form
+.search-form {
+  @extend .form-inline;
+  flex-flow: row nowrap;
+}
+
+.search-form label {
+  font-weight: normal;
+  @extend .form-group;
+  margin-bottom: 0;
+}
+
+.search-form {
+  .search-field {
+    @extend .form-control;
+    height: 38px;
+    border: 1px solid $white;
+    margin-right: 6px;
+
+  }
+}
+
+.search-bar {
+  .search-form {
+    .search-field {
+      border: none;
+      margin-right: 0;
+    }
+
+    .search-submit {
+      background-color: #fff;
+      border: none;
+      margin-left: -1px;
+      height: 38px;
+      width: 38px;
+      border: 1px solid #fff;
+
+    }
+  }
+}

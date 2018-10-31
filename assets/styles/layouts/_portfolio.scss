@@ -1,0 +1,74 @@
+.page-template-template-portfolio {
+  .entry-content.map-intro {
+    padding-bottom: 0;
+  }
+  .section-map {
+    .row {
+      margin: 0;
+    }
+    .col {
+      padding: 0;
+      &:first-of-type {
+        .iwm_map_canvas {
+          border-right: 1px solid $gray-lightest;
+        }
+      }
+    }
+  }
+}
+.partner {
+  .partner-intro {
+    margin-bottom: 1rem;
+    .note {
+      font-size: 0.875rem;
+    }
+  }
+
+}
+.partnerlist-country-partners {
+    list-style: none;
+    border: 1px solid $gray-lightest;
+    padding: 1rem 1rem 0rem 1rem;
+    line-height: 1.1;
+    margin: 1rem 0;
+    font-size: 0.9375rem;
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+  .partnerlist-initiatives {
+    margin-left: 0.5rem;
+  }
+
+.map-popover {
+  background-color: #fff;
+  border: 1px solid $gray-lightest;
+  padding: 1.5rem 1rem;
+  margin: 1rem;
+  min-width: 200px;
+  .map-popover-close {
+    float: right;
+  }
+}
+.initiatives-row {
+  padding-top: 1rem;
+}
+.initiatives-list {
+  li {
+    display:flex;
+    margin-bottom: 1rem;
+  }
+  .initiative-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  img {
+    width: 2rem;
+    margin-right: 1rem;
+  }
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+}

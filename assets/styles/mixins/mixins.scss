@@ -1,0 +1,58 @@
+@mixin arrow-link-right() {
+  padding-right: 16px; //prevents link from wrapping at the >
+  position: relative;
+  &:after {
+    display: inline-block;
+    font-family: 'FontAwesome';
+    content: ' \f105';
+    transition: right 0.5s;
+    position: absolute; //prevents link from wrapping at the >
+    right: 4px;
+    top: 60%;
+    transform: translateY(-50%);
+  }
+  &:hover {
+    &:after {
+      right: 0;
+    }
+  }
+}
+@mixin arrow-link-left() {
+  padding-left: 16px; //prevents link from wrapping at the >
+  position: relative;
+  &:before {
+    display: inline-block;
+    font-family: 'FontAwesome';
+    content: ' \f104';
+    transition: left 0.5s;
+    position: absolute; //prevents link from wrapping at the >
+    left: 4px;
+    top: 60%;
+    transform: translateY(-50%);
+  }
+  &:hover {
+    &:before {
+      left: 0;
+    }
+  }
+}
+
+@mixin rsaquo-link-right() {
+  padding-right: 12px; //prevents link from wrapping at the >
+  position: relative;
+  display: inline-block;
+  &:after {
+    display: inline-block;
+    content: ' \203A';
+    transition: right 0.5s;
+    position: absolute; //prevents link from wrapping at the >
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:hover {
+    &:after {
+      right: 0;
+    }
+  }
+}

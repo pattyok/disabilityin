@@ -1,0 +1,7 @@
+slug,new_page_title,new_page_content,image,menu,special,post_type,new_page_template
+about-us,About Us,Provide some information about your organization here,,TRUE,,page,
+our-stories,Our Stories,,,TRUE,story_archive,,
+opportunities,Opportunities,,,TRUE,,page,
+news,News & Events,Page that shows posts,,TRUE,page_for_posts,page,
+home,Home Page,,,,front_page,page,
+sample-story,Sample Story,Use stories to spotlight your members,,,,our_stories,

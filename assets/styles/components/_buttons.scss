@@ -1,0 +1,36 @@
+@mixin button($bg-color, $hover: null) {
+  @extend .btn;
+  background-color: $bg-color;
+  transition: background-color 1s;
+  font-family: $font-family-base;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  &:hover, &:active {
+    @if($hover) {
+      background-color: $hover;
+    } @else {
+      background-color: darken($bg-color, 15%);
+    }
+    color: #fff;
+  }
+}
+
+.btn-blue {
+  @include button($blue);
+}
+
+.btn-green {
+  @include button($green);
+}
+
+.btn-gray {
+  @include button($gray, $green);
+}
+
+.btn-teal {
+  @include button($teal);
+}
+
+
+

@@ -1,0 +1,28 @@
+.section-staff {
+  padding: 0;
+  margin-bottom: 3rem;
+}
+.bio {
+  border-bottom: 1px solid $gray-lightest;
+  clear: both;
+  line-height: 1.25;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  &.has-image {
+    min-height: 220px;
+  }
+  img {
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    height: auto;
+    width: 155px;
+  }
+  .bio-name {
+    font-size: 1rem;
+    margin-bottom: 0rem;
+  }
+  .bio-title {
+    font-size: 1rem;
+  }
+}
