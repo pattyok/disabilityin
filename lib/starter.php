@@ -13,12 +13,10 @@ class startWorker {
 		add_action( 'after_switch_theme', array($this, 'make_sample_pages'), 5 );
 		//create menu
 		add_action( 'after_switch_theme', array($this, 'make_top_menu'), 10 ); //cant set location of an empty menu so this must come after pages
-		// add_action( 'after_switch_theme', 'tfc_make_foot_menu',6 );
 		// //manipulate blog/home pages
 		add_action( 'after_switch_theme',  array($this, 'make_post'), 15 );
 		add_action( 'after_switch_theme', array($this, 'setup_post_categories'), 30 );
 		// //make pages
-		// add_action( 'after_switch_theme', 'tfc_make_donate_button',100 );
 		add_action( 'after_switch_theme', array($this, 'set_widgets'),650 );
 
 		$this->menu_name = 'DIN Top Menu';
@@ -33,11 +31,8 @@ class startWorker {
 
 		// If it doesn't exist, let's create it.
 		if ( !$menu_exists ) {
-				Extras\write_log($this->menu_name . ' menu does not exist');
 				$this->menu_id = wp_create_nav_menu($this->menu_name);
-				//Extras\write_log($menu_id . ' is menu id (created)');
 		} else {
-				//Extras\write_log($this->menu_name . ' exists');
 				$menu_header = get_term_by('name', $this->menu_name, 'nav_menu');
 				if ( is_wp_error( $menu_header ) ) {
 				// something went wrong
@@ -49,11 +44,9 @@ class startWorker {
 		$this->populate_menu($this->menu_id, $this->menu_items);
 		//$locations = get_theme_mod('nav_menu_locations');
 		$locations = get_nav_menu_locations();
-		Extras\write_log($locations);
 		$locations['primary_navigation'] = $this->menu_id;
 		set_theme_mod( 'nav_menu_locations', $locations );
 		$locations = get_theme_mod('nav_menu_locations');
-		Extras\write_log($locations);
 	}
 
 	public function make_sample_pages(){
@@ -112,22 +105,19 @@ class startWorker {
 		if ( !isset($page_check->ID) ) {
 				//make page
 				$new_page_id = wp_insert_post($new_page);
-				Extras\write_log($new_page_title . ' page is created ' . $new_page_id);
 				//add featured image
-				if(!empty($image)){
+				if (!empty($image)){
 						$this->add_image($new_page_id, $image);
-				} else {
-						//Extras\write_log($new_page_title . ' no image');
 				}
 		} else {
 				$new_page_id = $page_check->ID;
-				Extras\write_log($new_page_title . ' exists, skipping');
+				//Extras\write_log($new_page_title . ' exists, skipping');
 		}
 		//make menu item
 		if ( $menu == 'TRUE' ) {
 			$this->make_menu_item($new_page_id, $new_page_title, $slug);
 		} else {
-			Extras\write_log($new_page_title . ' no menu');
+			//Extras\write_log($new_page_title . ' no menu');
 		}
 
 		//assign page template
@@ -166,13 +156,12 @@ class startWorker {
 	}
 
 	private function populate_menu($menu_id, $menu_items) {
-		Extras\write_log($menu_items);
 		foreach ($menu_items as $item) {
 			//Extras\write_log($menu_id . ' menu id ' . $post_id);
 			if ( $this->item_is_in_menu( $menu_id, $item['menu-item-title'] ) ) {
-					Extras\write_log( $menu_id . ' already has ' . $item['menu-item-title']);
+					//Extras\write_log( $menu_id . ' already has ' . $item['menu-item-title']);
 			} else {
-				Extras\write_log( 'Adding to ' . $menu_id . ' : ' . $item['menu-item-title']);
+				//Extras\write_log( 'Adding to ' . $menu_id . ' : ' . $item['menu-item-title']);
 				wp_update_nav_menu_item($menu_id, 0, $item);
 			}
 		}
@@ -193,8 +182,6 @@ class startWorker {
 		foreach ($menu_object as $item) {
 			$menu_items[] = wp_specialchars_decode($item->title);
 		}
-		Extras\write_log($menu_items);
-		Extras\write_log(wp_specialchars_decode($item_title));
 
 		// test if the specified page is in the menu or not. return true or false.
 		return in_array( wp_specialchars_decode($item_title), $menu_items );
@@ -217,26 +204,60 @@ class startWorker {
 	}
 
 	public function set_widgets() {
+		//USE ONLY IN TESTING THIS REMOVES ALL WIDGETS
+		update_option('sidebars_widgets', array());
+		//
+		$this->pre_add_widget( 'home-page-widgets-1', 'custom_html',
+			array(
+					'title' => '',
+					'content' => '<h2 class="sans-serif blue">Add a Custom Banner to your home page</h2><a class="link-learn-more" href="#">Learn More</a>',
+					'classes' => 'align-center',
+					'filter' => false,
+			)
+		);
+		$this->pre_add_widget( 'home-page-widgets-2', 'text',
+			array(
+					'title' => 'Widget Section 2',
+					'text' => 'Add or Edit Widgets in the Customizer',
+					'filter' => false,
+			)
+		);
+		$this->pre_add_widget( 'home-page-widgets-2', 'text',
+			array(
+					'title' => 'Widget Section 2',
+					'text' => 'Add or Edit Widgets in the Customizer',
+					'filter' => false,
+			)
+		);
+		$this->pre_add_widget( 'home-page-widgets-3', 'text',
+			array(
+					'title' => 'Widget Section 3',
+					'text' => 'Add or Edit Widgets in the Customizer',
+					'filter' => false,
+			)
+		);
 		$this->pre_add_widget( 'sidebar-footer-upper', 'text',
 			array(
-					'title' => 'Test1',
-					'text' => '[contact-form-7 id="162" title="Contact form 1"]',
+					'title' => 'Upper Footer Widget',
+					'text' => 'You can add a contact form here or other content that you would like on every page. Delete this widget to remove the section',
 					'filter' => false,
 			)
 		);
 
-		$this->pre_add_widget( 'sidebar-footer-lower-left', 'text',
+		$this->pre_add_widget( 'sidebar-footer-lower-left', 'custom_html',
 			array(
-					'title' => 'Test1',
-					'text' => 'Test 1 Test',
+					'title' => 'Disability:IN Your State Here',
+					'content' => '<p>A State Chapter of&nbsp;<a href="https://disabilityin.org/">Disability:IN</a></p>
+					<address>Address line 1<br>
+					Address line 1</address>',
 					'filter' => false,
 			)
 		);
 
 		$this->pre_add_widget( 'sidebar-footer-lower-right', 'text',
 			array(
-					'title' => 'Test2',
-					'text' => 'Test 2 Test',
+					'title' => 'Lower Footer Right Widget',
+					'text' => 'Replace with Social Icons Widget or other Widget that you would like to see on every page',
 					'filter' => false,
 			)
 		);
@@ -256,6 +277,9 @@ class startWorker {
 				ksort( $widget_opts );
 				end( $widget_opts );
 				$insert_id = key( $widget_opts );
+				if (!is_int($insert_id)) {
+					$insert_id = 0;
+				}
 		} else {
 				// None existing, start fresh.
 				$widget_opts = array( '_multiwidget' => 1 );
@@ -270,9 +294,6 @@ class startWorker {
 		update_option( 'sidebars_widgets', $sidebars );
 		update_option( "widget_$name", $widget_opts );
 	}
-
-
-
 }
 
 new StartWorker();

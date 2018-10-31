@@ -3,5 +3,5 @@ about-us,About Us,Provide some information about your organization here,,TRUE,,p
 our-stories,Our Stories,,,TRUE,story_archive,,
 opportunities,Opportunities,,,TRUE,,page,
 news,News & Events,Page that shows posts,,TRUE,page_for_posts,page,
-home,Home Page,,,,front_page,page,
+home,Home Page,,,,front_page,page,template-home.php
 sample-story,Sample Story,Use stories to spotlight your members,,,,our_stories,

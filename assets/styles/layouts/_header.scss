@@ -122,3 +122,11 @@ header.banner {
     }
   }
 }
+
+@include media-breakpoint-up(xl) {
+  header.banner {
+    .container {
+      max-width: 1200px;
+    }
+  }
+}

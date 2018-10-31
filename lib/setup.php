@@ -106,6 +106,14 @@ add_filter('gform_init_scripts_footer', __NAMESPACE__ . '\\init_scripts');
  */
 function widgets_init() {
 	register_sidebar([
+    'name'          => __('Sidebar Primary (Not in use)', 'sage'),
+    'id'            => 'sidebar-primary',
+    'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	]);
+	register_sidebar([
     'name'          => __('Widgets 1', 'sage'),
     'id'            => 'home-page-widgets-1',
     'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
@@ -142,16 +150,16 @@ function widgets_init() {
     'id'            => 'sidebar-footer-lower-left',
     'before_widget' => '<div class="widget %1$s %2$s" id="%1$s">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-    'after_title'   => '</h2>'
+    'before_title'  => '<div class="font-large widget-title">',
+    'after_title'   => '</div>'
 	]);
 	register_sidebar([
     'name'          => __('Footer Lower Right', 'sage'),
     'id'            => 'sidebar-footer-lower-right',
     'before_widget' => '<div class="widget %1$s %2$s" id="%1$s">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-    'after_title'   => '</h2>'
+    'before_title'  => '<div class="large-font widget-title">',
+    'after_title'   => '</div>'
   ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
