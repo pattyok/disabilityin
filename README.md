@@ -1,4 +1,4 @@
-Disabilty:IN Theme
+# Disabilty:IN Theme
 
 This is a custom WordPress starter theme for use on Sites within the Disability:IN Network
 
