@@ -2,8 +2,8 @@
 <?php $hide_header = get_theme_mod('home_page_header_hide');
 if (!$hide_header) {
 	$image = get_theme_mod('home_page_header_image');
-	$content = get_theme_mod('home_page_header_content');
-	$link = get_theme_mod('home_page_header_link');
+	$content = get_theme_mod('home_page_header_content', '<strong>Disability:IN\'s</strong> mission is to... Edit this content in the Customizer.');
+	$link = get_theme_mod('home_page_header_link', '/about-us');
 	$link_label = get_theme_mod('home_page_header_link_label', 'Learn More About Us');
 ?>
 	<section class="section section-home-header bg-blue-dark" >

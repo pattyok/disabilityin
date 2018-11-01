@@ -21,10 +21,20 @@
 	wp.customize('home_page_post_background', function(value) {
 		value.bind(function(to) {
 			console.log(to);
-			$(".section-home-post").removeClass (function (index, className) {
+			$("#section-home-page-post").removeClass (function (index, className) {
 				return (className.match (/(^|\s)bg-\S+/g) || []).join(' ');
 			});
-			$(".section-home-post").addClass('bg-' + to);
+			$("#section-home-page-post").addClass('bg-' + to);
+		});
+	});
+
+	wp.customize('home_page_post_background', function(value) {
+		value.bind(function(to) {
+			console.log(to);
+			$("#section-home-page-our_stories").removeClass (function (index, className) {
+				return (className.match (/(^|\s)bg-\S+/g) || []).join(' ');
+			});
+			$("#section-home-our_stories").addClass('bg-' + to);
 		});
 	});
 
