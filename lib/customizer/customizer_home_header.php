@@ -3,8 +3,10 @@
 namespace Roots\Sage\Customizer;
 
 use Roots\Sage\Assets;
+use Roots\Sage\Extras;
 
 function customize_home_header($wp_customize) {
+	$defaults = get_home_header_defaults();
 	make_customizer_section($wp_customize, 'home_page_header' , array (
 		'title'      => __( 'Home Page Header', 'sage' ),
 		'panel'			=> 'home_page_panel',
@@ -12,7 +14,6 @@ function customize_home_header($wp_customize) {
 	) );
 	//header image
 	$wp_customize->add_setting('home_page_header_image', array(
-		'default' => Assets\asset_path('images/home_page_hero.jpg'),
 		'transport' => 'postMessage',
 		'sanitize_calllback' => 'absint'
 	));
@@ -37,7 +38,7 @@ function customize_home_header($wp_customize) {
 
 	//Header Content
 	$wp_customize->add_setting('home_page_header_content', array(
-		'default' => 'Set your intro in the customizer',
+		'default' => $defaults['content'],
 		'transport' => 'postMessage',
 		'sanitize_calllback' => 'wp_kses_post'
 	));
@@ -60,7 +61,7 @@ function customize_home_header($wp_customize) {
 
 	//Header Link Label
 	$wp_customize->add_setting( 'home_page_header_link_label', array(
-		'default'           => 'Learn more about us',
+		'default' => $defaults['link_label'],
 		'sanitize_callback' => 'wp_filter_nohtml_kses'
 	) );
 
@@ -80,9 +81,8 @@ function customize_home_header($wp_customize) {
 			'fallback_refresh' => true
 		));
 	//Header Link
-	$default_link = get_page_by_title('About Us');
 	$wp_customize->add_setting( 'home_page_header_link', array(
-		'default'           => $default_link->ID,
+		'default' => $defaults['link'],
 		'sanitize_callback' => 'absint'
 	) );
 
@@ -123,5 +123,21 @@ function header_link_render_callback() {
 	return wp_kses_post( $output );
 }
 
+function get_home_header_defaults() {
+	return [
+		'image' => null,
+		'content' => '<strong>Disability:IN\'s</strong> mission is to... Edit this content in the Customizer.',
+		'link' => Extras\get_id_by_slug('about-us'),
+		'link_label' => 'Learn More About Us',
+	];
+}
 
+function get_home_page_header_args() {
+	$defaults = get_home_header_defaults();
+	$output = array();
+	foreach ($defaults as $var => $default) {
+		$output[$var] = get_theme_mod('home_page_header_' . $var, $default);
+	}
+	return $output;
+}
 

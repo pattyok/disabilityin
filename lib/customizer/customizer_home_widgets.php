@@ -9,7 +9,7 @@ use Roots\Sage\Extras;
 // adding settings sections just above the widgets sidebar,
 // TODO if time allows combine the settings with the widget sections
 function customize_home_widgets($wp_customize, $sidebar_id, $sidebar_title, $priority) {
-	Extras\write_log($sidebar_id);
+	$defaults = get_home_page_widget_defaults();
 	//move widget panel to home_page_panel
 	$widget_section = (object) $wp_customize->get_section( 'sidebar-widgets-' . $sidebar_id );
 	$widget_section -> panel = 'home_page_panel';
@@ -27,7 +27,7 @@ function customize_home_widgets($wp_customize, $sidebar_id, $sidebar_title, $pri
 
 	//Title
 	$wp_customize->add_setting($sidebar_id . '_title', array(
-		'default' => $label,
+		'default' => $defaults[$sidebar_id]['title'],
 		'transport' => 'postMessage',
 		'sanitize_calllback' => 'wp_filter_nohtml_kses'
 	));
@@ -41,6 +41,7 @@ function customize_home_widgets($wp_customize, $sidebar_id, $sidebar_title, $pri
 
 	//Layout
 	$wp_customize->add_setting( $sidebar_id . '_background', array (
+		'default' => $defaults[$sidebar_id]['background'],
 		'sanitize_callback' =>  __NAMESPACE__ . '\\sanitize_radio',
 		'transport' => 'postMessage'
 	));
@@ -58,6 +59,7 @@ function customize_home_widgets($wp_customize, $sidebar_id, $sidebar_title, $pri
 
 // Layout
 $wp_customize->add_setting( $sidebar_id . '_layout', array (
+	'default' => $defaults[$sidebar_id]['layout'],
 	'sanitize_callback' =>  __NAMESPACE__ . '\\sanitize_radio',
 ));
 
@@ -138,16 +140,34 @@ function widget_title_render_callback($sidebar_id) {
 	return wp_kses_post( $title_content );
 }
 
+function get_home_page_widget_defaults() {
+	return [
+		'home-page-widgets-1' => [
+			'hide'  			=> false,
+			'title' 			=> '',
+			'layout' 			=> 'stacked',
+			'background' 	=> 'white',
+		],
+		'home-page-widgets-2' => [
+			'hide'  			=> false,
+			'title' 			=> 'Widgets 2',
+			'layout' 			=> 'columns',
+			'background' 	=> 'gray-light',
+		],
+		'home-page-widgets-3' => [
+			'hide'  			=> false,
+			'title' 			=> 'Widgets 3',
+			'layout' 			=> 'stacked',
+			'background' 	=> 'white',
+		],
+	];
+}
 
 function get_home_page_widget_args($sidebar) {
-	$vars = [
-		'hide'  			=> false,
-		'title' 			=> '',
-		'layout' 			=> 'columns',
-		'background' 	=> 'white',
-	];
+	$vars = get_home_page_widget_defaults();
 	$output = array();
-	foreach ($vars as $var => $default) {
+	$defaults = $vars[$sidebar];
+	foreach ($defaults as $var => $default) {
 		$output[$var] = get_theme_mod($sidebar . '_' . $var, $default);
 	}
 	return $output;

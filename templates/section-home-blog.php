@@ -36,17 +36,24 @@ if ($post_type == 'our_stories') {
 					} else if ($count >= 5) {
 						$col_class .= ' col-md-4';
 					}
+					if ($vars['layout'] == 'columns') {
 					?>
 				<article <?php post_class($col_class); ?>>
+				<?php } ?>
 					<?php get_template_part('templates/content', $vars['layout'] == 'columns' ? 'column' : get_post_format()); ?>
+					<?php
+					if ($vars['layout'] == 'columns') { ?>
 				</article>
+					<?php } ?>
 				<?php
 				}
 				wp_reset_postdata(); ?>
 		</div>
+		<?php if (!empty($vars['link_label'])) { ?>
 		<div class="row footer-row">
-			<a class="more-link" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php echo $vars['link_text'] ?></a>
+			<a class="more-link" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php echo $vars['link_label'] ?></a>
 		</div>
+		<?php } ?>
 	</div>
 </section>
 <?php } ?>

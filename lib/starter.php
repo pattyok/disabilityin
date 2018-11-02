@@ -9,19 +9,27 @@ use Roots\Sage\Extras;
 
 class startWorker {
 	function __construct() {
-		//create pages
-		add_action( 'after_switch_theme', array($this, 'make_sample_pages'), 5 );
-		//create menu
-		add_action( 'after_switch_theme', array($this, 'make_top_menu'), 10 ); //cant set location of an empty menu so this must come after pages
-		// //manipulate blog/home pages
-		add_action( 'after_switch_theme',  array($this, 'make_post'), 15 );
-		add_action( 'after_switch_theme', array($this, 'setup_post_categories'), 30 );
-		// //make pages
-		add_action( 'after_switch_theme', array($this, 'set_widgets'),650 );
+		//Only create  content if this is the first time applying the theme.
+		$theme_version = get_option('disabilityin_version');
+		$my_theme = wp_get_theme();
+		if (empty($theme_version)) {
+			//create pages
+			add_action( 'after_switch_theme', array($this, 'make_sample_pages'), 5 );
+			//create menu
+			add_action( 'after_switch_theme', array($this, 'make_top_menu'), 10 ); //cant set location of an empty menu so this must come after pages
+			// //manipulate blog/home pages
+			add_action( 'after_switch_theme',  array($this, 'make_post'), 15 );
+			add_action( 'after_switch_theme', array($this, 'setup_post_categories'), 30 );
+			// //make pages
+			add_action( 'after_switch_theme', array($this, 'set_widgets'),650 );
 
-		$this->menu_name = 'DIN Top Menu';
-		$this->menu_id = '';
-		$this->menu_items = array();
+			$this->menu_name = 'DIN Top Menu';
+			$this->menu_id = '';
+			$this->menu_items = array();
+		} else {
+			Extras\write_log("Saved Version: " . $theme_version);
+		}
+		update_option('disabilityin_version', $my_theme->get( 'Version' ));
 	}
 
 	public function make_top_menu() {
@@ -204,7 +212,7 @@ class startWorker {
 	}
 
 	public function set_widgets() {
-		//USE ONLY IN TESTING THIS REMOVES ALL WIDGETS
+		//This removes all widgets, we only run this function when theme is activated for the first time
 		update_option('sidebars_widgets', array());
 		//
 		$this->pre_add_widget( 'home-page-widgets-1', 'custom_html',

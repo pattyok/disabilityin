@@ -7,14 +7,16 @@ use Roots\Sage\Extras;
 <footer class="footer-main">
   <div class="container to-top-wrapper">
     <div class="to-top" aria-label="Back to Top"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-  </div>
+	</div>
+	<?php if (is_active_sidebar( 'sidebar-footer-upper')) { ?>
   <section class="section footer-upper">
     <div class="container">
       <div class="row">
         <?php dynamic_sidebar('sidebar-footer-upper'); ?>
       </div>
     </div>
-  </section>
+	</section>
+	<?php } ?>
   <section class="section footer-lower">
     <div class="container">
       <div class="row">

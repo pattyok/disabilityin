@@ -11,7 +11,7 @@ use Roots\Sage\Assets;
 					<?php if ( function_exists( 'the_custom_logo' ) && has_custom_logo()) {
 						the_custom_logo();
 					} else {
-					?>	<a class="custom-logo-link default" href="<?= esc_url(home_url('/')); ?>" ><img src="<?php echo Assets\asset_path('images/logo-2x.png') ?>" src="<?php echo Assets\asset_path('images/logo-2x.png') ?>" alt="<?php bloginfo('name'); ?>" /></a>
+					?>	<a class="custom-logo-link default" href="<?= esc_url(home_url('/')); ?>" ><img src="<?php echo Assets\asset_path('images/logo-2x.png') ?>" alt="<?php bloginfo('name'); ?>" /></a>
 					<?php } ?>
         </div>
         <div id="header-nav-wrapper" class="header-nav-wrapper collapse">

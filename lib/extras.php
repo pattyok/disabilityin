@@ -47,6 +47,15 @@ function excerpt_more() {
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
 
+function get_id_by_slug($page_slug) {
+	$page = get_page_by_path($page_slug);
+	if ($page) {
+			return $page->ID;
+	} else {
+			return null;
+	}
+}
+
 /**
  * Make Excerpt
   @params: content - string

@@ -76,6 +76,12 @@
   }
 }
 
+.section-stacked {
+  article {
+    width: 100%;
+  }
+}
+
 .section-home-widgets,
 .section-home-post {
   .customize-partial-edit-shortcut {
@@ -110,7 +116,6 @@
 
   .section-columns {
     .content-row {
-      flex-wrap: nowrap;
 
       .widget {
         min-width: auto;
