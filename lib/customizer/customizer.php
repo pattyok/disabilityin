@@ -55,7 +55,20 @@ function customize_register($wp_customize) {
 		customize_home_widgets($wp_customize, 'home-page-widgets-3', 'Widgets 3', 210);
 		add_widget_partials($wp_customize);
 
-		//$wp_customize->get_section( 'sidebar-widgets-home-page-widgets-1' )-> description=
+		//move footer widgets into their own panel
+		$wp_customize->add_panel('footer_widgets_panel',
+			array (
+				'title' => __('Footer Widgets'),
+				'priority' => 120
+			)
+		);
+		$widget_section = (object) $wp_customize->get_section( 'sidebar-widgets-sidebar-footer-upper' );
+		$widget_section -> panel = 'footer_widgets_panel';
+		$widget_section = (object) $wp_customize->get_section( 'sidebar-widgets-sidebar-footer-lower-left' );
+		$widget_section -> panel = 'footer_widgets_panel';
+		$widget_section = (object) $wp_customize->get_section( 'sidebar-widgets-sidebar-footer-lower-right' );
+		$widget_section -> panel = 'footer_widgets_panel';
+
 
 
 }

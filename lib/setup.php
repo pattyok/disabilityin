@@ -38,7 +38,6 @@ function setup() {
   register_nav_menus([
     'primary_navigation' => __('Primary Navigation', 'sage'),
     'secondary_navigation' => __('Secondary Navigation', 'sage'),
-    'header_buttons' => __('Header Buttons', 'sage')
   ]);
 
   // Enable post thumbnails
@@ -160,6 +159,22 @@ function widgets_init() {
     'after_widget'  => '</div>',
     'before_title'  => '<div class="large-font widget-title">',
     'after_title'   => '</div>'
+	]);
+	register_sidebar([
+    'name'          => __('News & Events Intro', 'sage'),
+    'id'            => 'sidebar-news-intro',
+    'before_widget' => '<div class="widget %1$s %2$s" id="%1$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>'
+	]);
+	register_sidebar([
+    'name'          => __('Our Stories Intro', 'sage'),
+    'id'            => 'sidebar-our_stories-intro',
+    'before_widget' => '<div class="widget %1$s %2$s" id="%1$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>'
   ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
@@ -465,7 +480,27 @@ function din_plugin_manager() {
 			'name'		=> 'Widget CSS Classes',
 			'slug'		=> 'widget-css-classes',
 			'version' => '1.5+',
-		)
+		),
+		array(
+			'name'    => 'Classic Editor',
+			'slug'    => 'classic-editor',
+			'version' => '0.5+',
+		),
+		array(
+			'name'    => 'Jetpack by WordPress.com',
+			'slug'    => 'jetpack',
+			'version' => '6.6.1+',
+		),
+		array(
+			'name'    => 'Contact Form 7',
+			'slug'    => 'contact-form-7',
+			'version' => '5.0.5+',
+		),
+		array(
+			'name'    => 'Simple Social Icons',
+			'slug'    => 'simple-social-icons',
+			'version' => '3.0.0+',
+		),
 	));
 
 	/*

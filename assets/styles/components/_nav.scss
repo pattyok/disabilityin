@@ -162,7 +162,9 @@
           a {
             font-size: 10px;
             margin: 3px;
-            padding: 4px;
+            padding: 4px 8px;
+            background-color: $green;
+            color: #ffffff;
             border: 1px solid $green;
           }
         }
@@ -203,6 +205,12 @@
         a {
           padding: 1rem;
           display: block;
+        }
+
+        &:last-of-type {
+          a {
+            padding-right: 0;
+          }
         }
 
         &.menu-item-has-children {
