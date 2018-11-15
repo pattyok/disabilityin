@@ -105,7 +105,7 @@ $black: #000 !default;
 $red: #a82130;
 $orange: #f59331;
 $yellow: #ffe539;
-$green: #3eaf49;
+$green: #369B40; //#00794B; //#3eaf49;
 $blue: #047bc1;
 $teal: #0B4F6C;
 $pink: #ff5b77 !default;
@@ -118,7 +118,7 @@ $gray-dark: #222222; //body copy
 $gray: #979797; //
 $gray-light: #9b9b9b; //
 $gray-lighter: #d8d8d8; //
-$gray-lightest: #e8e8e8; //footer
+$gray-lightest: #EDEDED; //footer
 
 // Reassign color vars to semantic color scheme
 $brand-primary: $blue-dark;
@@ -425,8 +425,8 @@ $input-line-height: 1.25 !default;
 $input-bg: $white !default;
 $input-bg-disabled: $gray-lighter !default;
 
-$input-color: $gray !default;
-$input-border-color: #fff;
+$input-color: $gray-dark;
+$input-border-color: $gray;
 $input-btn-border-width: $border-width !default; // For form controls and buttons
 $input-box-shadow: none;
 
@@ -440,7 +440,7 @@ $input-box-shadow-focus: $input-box-shadow,
 rgba($input-border-focus, .6) !default;
 $input-color-focus: $input-color !default;
 
-$input-color-placeholder: $gray-light !default;
+$input-color-placeholder: $gray-dark;
 
 $input-padding-x-sm: .5rem !default;
 $input-padding-y-sm: .25rem !default;

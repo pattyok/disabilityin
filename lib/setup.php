@@ -496,6 +496,11 @@ function din_plugin_manager() {
 			'slug'    => 'contact-form-7',
 			'version' => '5.0.5+',
 		),
+		array (
+			'name'		=> 'Contact Form 7 Accessible Defaults',
+			'slug'		=> 'contact-form-7-accessible-defaults',
+			'version'	=> '1.1.4+'
+		),
 		array(
 			'name'    => 'Simple Social Icons',
 			'slug'    => 'simple-social-icons',

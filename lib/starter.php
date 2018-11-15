@@ -23,12 +23,15 @@ class startWorker {
 			// //make pages
 			add_action( 'after_switch_theme', array($this, 'set_widgets'),650 );
 
+			add_action( 'after_switch_theme', array($this, 'set_version'),650 );
+
 			$this->menu_name = 'DIN Top Menu';
 			$this->menu_id = '';
 			$this->menu_items = array();
-		} else {
-			Extras\write_log("Saved Version: " . $theme_version);
 		}
+	}
+
+	public function set_version() {
 		update_option('disabilityin_version', $my_theme->get( 'Version' ));
 	}
 

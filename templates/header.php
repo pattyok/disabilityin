@@ -51,17 +51,17 @@ use Roots\Sage\Assets;
           </div>
         </div>
       </div>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#header-nav-wrapper" aria-controls="collapsingNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#header-nav-wrapper" aria-controls="header-nav-wrapper" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars" aria-hidden="true"></i>
         <span class="icon-bar-label"> Menu</span>
   </button>
       <div class="search-bar">
         <div class="container">
           <form role="search" method="get" class="search-form" action="/">
-            	<label for="s">
+            	<label for="header-search">
 							<span class="screen-reader-text">Search for:</span>
 							</label>
-							<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+							<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" id="header-search" />
 							<button type="submit" class="search-submit" value="Search"><span class="icon"><i class="fa fa-search"></i></span><span class="sr-only">Submit Search</span></button>
 
             </form>

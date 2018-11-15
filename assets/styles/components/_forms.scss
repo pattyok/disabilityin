@@ -50,7 +50,6 @@ input[type="submit"] {
   .search-field {
     @extend .form-control;
     height: 38px;
-    border: 1px solid $white;
     margin-right: 6px;
 
   }
@@ -61,6 +60,7 @@ input[type="submit"] {
     .search-field {
       border: none;
       margin-right: 0;
+      border: 1px solid $white;
     }
 
     .search-submit {
