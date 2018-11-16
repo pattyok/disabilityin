@@ -11,7 +11,7 @@ class startWorker {
 	function __construct() {
 		//Only create  content if this is the first time applying the theme.
 		$theme_version = get_option('disabilityin_version');
-		$my_theme = wp_get_theme();
+
 		if (empty($theme_version)) {
 			//create pages
 			add_action( 'after_switch_theme', array($this, 'make_sample_pages'), 5 );
@@ -32,6 +32,7 @@ class startWorker {
 	}
 
 	public function set_version() {
+		$my_theme = wp_get_theme();
 		update_option('disabilityin_version', $my_theme->get( 'Version' ));
 	}
 
