@@ -1,7 +1,7 @@
 slug,new_page_title,new_page_content,image,menu,special,post_type,new_page_template
 about-us,About Us,<p>Disability:IN is the leading nonprofit resource for business disability inclusion worldwide. Disability:IN [AFFILIATE NAME] is an Affiliate of Disability:IN encouraging disability inclusion in [AREA/LOCALE SPECIFICS].</p><p>Our network of more than 50 Affiliates raise a collective voice of positive change for people with disabilities in business.</p>,,TRUE,,page,
 our-stories,Our Stories,,,TRUE,story_archive,,
-opportunities,Opportunities,<p><strong>For Corporations: Disability Equality Index: A benchmarking tool that provides an objective score and roadmap on disability inclusion policies and practices. Learn more at www.disabilityequalityindex.org<p>,,TRUE,,page,
+opportunities,Opportunities,<p><strong>For Corporations: Disability Equality Index:</strong> A benchmarking tool that provides an objective score and roadmap on disability inclusion policies and practices. Learn more at <a href="http://www.disabilityequalityindex.org">www.disabilityequalityindex.org</a></p>,,TRUE,,page,
 news,News & Events,Page that shows posts,,TRUE,page_for_posts,page,
 home,Home Page,,,,front_page,page,template-home.php
 sample-story,Sample Story,Use stories to spotlight your members,,,,our_stories,

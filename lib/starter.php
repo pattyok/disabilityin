@@ -12,7 +12,7 @@ class startWorker {
 		//Only create  content if this is the first time applying the theme.
 		$theme_version = get_option('disabilityin_version');
 
-		if (empty($theme_version)) {
+		//if (empty($theme_version)) {
 			//create pages
 			add_action( 'after_switch_theme', array($this, 'make_sample_pages'), 5 );
 			//create menu
@@ -28,7 +28,7 @@ class startWorker {
 			$this->menu_name = 'DIN Top Menu';
 			$this->menu_id = '';
 			$this->menu_items = array();
-		}
+		//}
 	}
 
 	public function set_version() {
@@ -62,6 +62,7 @@ class startWorker {
 	}
 
 	public function make_sample_pages(){
+		error_log("make sample pages");
 		$file = Assets\asset_path('data/pages.csv');
 		$pages = array_map('str_getcsv', file($file));
 		array_walk($pages, function(&$a) use ($pages) {
@@ -71,6 +72,7 @@ class startWorker {
 
 		foreach ($pages as &$settings) {
 			if (!empty($settings['post_type'])) {
+				error_log(print_r($settings, true));
 				$this->make_new_page($settings);
 			} else {
 				$this->make_menu_item_link($settings);
@@ -103,7 +105,7 @@ class startWorker {
 		$post_type = $settings['post_type'];
 		$new_page_template = $settings['new_page_template'];
 
-
+		error_log($new_page_content);
 		$page_check = get_page_by_title($new_page_title);   // Check if the page already exists
 		$new_page = array(
 						'post_type'     => $post_type,
