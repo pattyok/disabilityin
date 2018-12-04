@@ -5,6 +5,13 @@
   article {
     padding: 1rem 0;
   }
+
+  .col-sidebar-primary {
+    .widget {
+      margin-top: 2rem;
+    }
+  }
+
 }
 
 article.slide_show {
@@ -31,6 +38,8 @@ article.slide_show {
   text-align: right;
   border-top: 1px solid $gray-lightest;
 }
+
+
 
 .archive-link {
   text-transform: uppercase;
@@ -83,6 +92,12 @@ article.post,
     .event-details-label {
       text-transform: uppercase;
       font-weight: bold;
+    }
+  }
+
+  article.post {
+    .thumb-wrapper {
+      margin-bottom: 2rem;
     }
   }
 
@@ -150,6 +165,7 @@ article.post,
     margin-bottom: 1rem;
   }
 
+  h2.entry-title,
   h3.entry-title {
     color: $blue;
   }
@@ -193,11 +209,24 @@ article.post,
   }
 }
 
+.news-intro {
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+
+  .widget {
+    padding-top: 1rem;
+  }
+}
+
 @include media-breakpoint-up(md) {
   .single {
     .main {
       article {
         padding: 2rem 0;
+      }
+
+      .col-sidebar-primary {
+        margin-top: 5.8rem;
       }
     }
   }

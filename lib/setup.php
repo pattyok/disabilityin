@@ -105,15 +105,7 @@ add_filter('gform_init_scripts_footer', __NAMESPACE__ . '\\init_scripts');
  */
 function widgets_init() {
 	register_sidebar([
-    'name'          => __('Sidebar Primary (Not in use)', 'sage'),
-    'id'            => 'sidebar-primary',
-    'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-		'after_title'   => '</h2>',
-	]);
-	register_sidebar([
-    'name'          => __('Widgets 1', 'sage'),
+    'name'          => __('Home Widgets 1', 'sage'),
     'id'            => 'home-page-widgets-1',
     'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
     'after_widget'  => '</div>',
@@ -121,7 +113,7 @@ function widgets_init() {
 		'after_title'   => '</h2>',
 	]);
 	register_sidebar([
-    'name'          => __('Widgets 2', 'sage'),
+    'name'          => __('Home Widgets 2', 'sage'),
     'id'            => 'home-page-widgets-2',
     'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
     'after_widget'  => '</div>',
@@ -129,7 +121,7 @@ function widgets_init() {
 		'after_title'   => '</h2>',
 	]);
 	register_sidebar([
-    'name'          => __('Widgets 3', 'sage'),
+    'name'          => __('Home Widgets 3', 'sage'),
     'id'            => 'home-page-widgets-3',
     'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
     'after_widget'  => '</div>',
@@ -163,10 +155,19 @@ function widgets_init() {
 	register_sidebar([
     'name'          => __('News & Events Intro', 'sage'),
     'id'            => 'sidebar-news-intro',
-    'before_widget' => '<div class="widget %1$s %2$s" id="%1$s">',
+    'before_widget' => '<div class="new-intro-widget widget %1$s %2$s" id="%1$s">',
     'after_widget'  => '</div>',
     'before_title'  => '<h2 class="widget-title">',
     'after_title'   => '</h2>'
+	]);
+	register_sidebar([
+		'name'          => __('News & Events Sidebar', 'sage'),
+		'description' 	=> 'Displays on News & Events landing page and all News & Events Posts, remove all Widgets to hide',
+    'id'            => 'sidebar-primary',
+    'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
 	]);
 	register_sidebar([
     'name'          => __('Our Stories Intro', 'sage'),
@@ -175,7 +176,16 @@ function widgets_init() {
     'after_widget'  => '</div>',
     'before_title'  => '<h2 class="widget-title">',
     'after_title'   => '</h2>'
-  ]);
+	]);
+	register_sidebar([
+		'name'          => __('Our Stories Sidebar', 'sage'),
+		'description' 	=> 'Displays on Our Stories landing page and all Our Stories Posts, remove all Widgets to hide',
+    'id'            => 'sidebar-stories',
+    'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
+	]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 

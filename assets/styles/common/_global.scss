@@ -269,6 +269,11 @@ li {
   }
 }
 
+ul.menu {
+  list-style: none;
+  padding: 0;
+}
+
 @include media-breakpoint-down(md) {
   h1 {
     font-size: 1.65rem;

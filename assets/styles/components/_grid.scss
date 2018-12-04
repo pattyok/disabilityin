@@ -1,9 +1,11 @@
 // Grid system
 
 //overriding to give us 100% up to the xl breakpoint, then fixed
-.container, .main {
+.container,
+.main {
   width: 100%;
 }
+
 .section {
   width: 100%;
 
@@ -13,15 +15,18 @@
   .container {
     padding: 0 30px;
   }
+
   .container {
     width: 100%;
   }
 
 }
+
 @include media-breakpoint-up(md) {
   .container {
     padding: 0 30px;
   }
+
   .home {
     .container {
       padding: 0 15px;
@@ -31,14 +36,12 @@
 
 @include media-breakpoint-up(lg) {
   .container {
-    width: 100%;
-    padding: 0 100px;
+    max-width: map-get($container-max-widths, lg);
   }
 }
 
 @include media-breakpoint-up(xl) {
   .container {
-    padding: 0 100px;
     max-width: map-get($container-max-widths, xl);
   }
 }

@@ -1,7 +1,16 @@
 <?php
 use Roots\Sage\Extras;
+$post_type = get_post_type();
+$sidebar = 'sidebar-primary';
+if ($post_type == 'our_stories') {
+	$sidebar = 'sidebar-stories';
+}
 ?>
 <div class="container">
+<?php if (is_active_sidebar($sidebar)) { ?>
+		<div class="row">
+			<div class="col col-12 col-md-9 col-main">
+	<?php } ?>
 <?php
 while (have_posts()) : the_post(); ?>
 
@@ -23,10 +32,16 @@ while (have_posts()) : the_post(); ?>
       <?php Extras\get_thumb_with_caption(true); ?>
       <?php the_content(); ?>
     </div>
-    <footer class="post-footer">
-      <?php get_template_part('templates/social', 'share'); ?>
-    </footer>
 
   </article>
 <?php endwhile; ?>
+<?php if (is_active_sidebar($sidebar)) { ?>
+			</div>
+			<div class="col col-12 col-md-3 col-sidebar-primary">
+	<?php } ?>
+	<?php dynamic_sidebar($sidebar); ?>
+	<?php if (is_active_sidebar($sidebar)) { ?>
+			</div>
+		</div>
+	<?php } ?>
 </div>

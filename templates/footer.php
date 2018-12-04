@@ -23,7 +23,7 @@ use Roots\Sage\Extras;
         <div class="col-12 col-md-8 col-footer-main">
           <?php dynamic_sidebar('sidebar-footer-lower-left'); ?>
         </div>
-        <div class="col-12 col-md-4 text-center text-md-right">
+        <div class="col-12 col-md-4 text-md-right">
 					<?php dynamic_sidebar('sidebar-footer-lower-right'); ?>
           </div>
       </div>

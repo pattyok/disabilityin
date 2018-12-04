@@ -10,7 +10,7 @@ use Roots\Sage\Extras;
     </div><div class="col col-12 col-md-8">
   <?php } ?>
   <header>
-    <h3 class="entry-title"><?php the_title(); ?></h3>
+    <h2 class="entry-title"><?php the_title(); ?></h2>
     <?php if ( get_post_type() == 'post' ) :
       get_template_part('templates/entry-meta');
       endif;
