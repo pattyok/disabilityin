@@ -482,11 +482,6 @@ function din_plugin_manager() {
 			'version' => '7.9+',
 		),
 		array(
-			'name'    => 'Gutenberg',
-			'slug'    => 'gutenberg',
-			'version' => '3.9+',
-		),
-		array(
 			'name'		=> 'Widget CSS Classes',
 			'slug'		=> 'widget-css-classes',
 			'version' => '1.5+',
