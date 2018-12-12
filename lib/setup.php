@@ -393,9 +393,10 @@ function create_custom_post_stories() {
     'has_archive'           => true,
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
-    'capability_type'       => 'page',
-    'rewrite'               => array('slug' => 'our-stories')
-  );
+		'capability_type'       => 'page',
+		'show_in_rest' 					=> true,
+		'rewrite'               => array('slug' => 'our-stories'),
+	);
   register_post_type( 'our_stories', $args );
 
 }
