@@ -263,7 +263,8 @@
             display: none;
           }
 
-          &:hover {
+          &:hover,
+          &:focus-within {
             .sub-menu {
               display: block;
 
