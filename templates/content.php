@@ -17,7 +17,8 @@ use Roots\Sage\Extras;
     ?>
   </header>
   <div class="entry-summary">
-    <?php the_excerpt(); ?>
+		<?php the_excerpt(); ?>
+		<a href="<?php the_permalink(); ?>" class="read-more-link"> <?php echo __('Continue Reading', 'sage') ?> <span class="sr-only"><?php the_title(); ?></span></a>
   </div>
   <?php if ($thumb) { ?>
     </div></div>
