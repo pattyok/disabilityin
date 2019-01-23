@@ -29,24 +29,22 @@ This theme is best installed on a clean WordPress Site. If you want to apply it 
 2.  Navigate to the themes page. **WP Admin** > **Appearance** > **Themes**
 3.  Click **Add New**
 4.  Click **Upload**, select the zip file you just downloaded
-5.        Once uploaded, you will be redirected to a new page, click **Activate** to activate the new theme.
+5.         Once uploaded, you will be redirected to a new page, click **Activate** to activate the new theme.
 
 ## Install Plugins
 
 Once your theme is activated you will see a notification about recommended plugins.
 
-TODO INSTALL SCREENSHOT HERE
-
 Click on the link to view recommended plugins.
 
 You can also get to the suggested plugins screen via **WP Admin** > **Appearance** > **Suggested Plugins**
 
-## Site Tour
+## Updating the Theme
 
-## Home Page Customization
+To update the theme to the latest version, first install the plugin Easy Theme and Plugin Upgrades, this will allow you to update the theme without deleting it first.
 
-## Adding Content
+## Updates by Version
 
-## Updating Menus
+### Version 1.2
 
-## Additional Resources
+- Added 'Continue Reading' Links to all excerpts
