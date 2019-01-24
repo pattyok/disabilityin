@@ -29,7 +29,7 @@ This theme is best installed on a clean WordPress Site. If you want to apply it 
 2.  Navigate to the themes page. **WP Admin** > **Appearance** > **Themes**
 3.  Click **Add New**
 4.  Click **Upload**, select the zip file you just downloaded
-5.         Once uploaded, you will be redirected to a new page, click **Activate** to activate the new theme.
+5.          Once uploaded, you will be redirected to a new page, click **Activate** to activate the new theme.
 
 ## Install Plugins
 
@@ -41,10 +41,13 @@ You can also get to the suggested plugins screen via **WP Admin** > **Appearance
 
 ## Updating the Theme
 
-To update the theme to the latest version, first install the plugin Easy Theme and Plugin Upgrades, this will allow you to update the theme without deleting it first.
+To update the theme to the latest version, first install the plugin [Easy Theme and Plugin Upgrades](https://wordpress.org/plugins/easy-theme-and-plugin-upgrades/), this will allow you to update the theme without deleting it first.
 
 ## Updates by Version
 
 ### Version 1.2
 
 - Added 'Continue Reading' Links to all excerpts
+- Updated the primary navigation to support 3 levels of items
+- Added a custom taxonomy for Stories for Categories and Tags
+- Added a Categories: Stories Widget
