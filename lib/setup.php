@@ -572,6 +572,16 @@ function din_plugin_manager() {
 			'slug'    => 'simple-social-icons',
 			'version' => '3.0.0+',
 		),
+		array(
+			'name'    => 'Easy Theme and Plugin Upgrades',
+			'slug'    => 'easy-theme-and-plugin-upgrades',
+			'version' => '2.0.1+',
+		),
+		array(
+			'name'    => 'Gallery Custom Links',
+			'slug'    => 'gallery-custom-links',
+			'version' => '1.0.2+',
+		),
 	));
 
 	/*
