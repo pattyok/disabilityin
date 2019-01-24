@@ -11,13 +11,9 @@ if ($post_type == 'our_stories') {
 <?php
   get_template_part('templates/page', 'header');
  ?>
-<?php if (!have_posts()) : ?>
-  <div class="alert alert-warning">
-    <?php _e('Sorry, no results were found.', 'sage'); ?>
-  </div>
-  <?php get_search_form(); ?>
-<?php endif; ?>
+
 <div class="container">
+
 	<div class="news-intro">
 		<?php dynamic_sidebar($intro); ?>
 	</div>
@@ -25,6 +21,12 @@ if ($post_type == 'our_stories') {
 		<div class="row">
 			<div class="col col-12 col-md-9">
 	<?php } ?>
+	<?php if (!have_posts()) : ?>
+  <div class="alert alert-warning">
+    <?php _e('Sorry, no results were found.', 'sage'); ?>
+  </div>
+  <?php get_search_form(); ?>
+<?php endif; ?>
 	<?php while (have_posts()) : the_post(); ?>
 
 		<?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>

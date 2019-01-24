@@ -11,10 +11,7 @@ use Roots\Sage\Extras;
   <?php } ?>
   <header>
     <h2 class="entry-title"><?php the_title(); ?></h2>
-    <?php if ( get_post_type() == 'post' ) :
-      get_template_part('templates/entry-meta');
-      endif;
-    ?>
+    <?php get_template_part( 'templates/entry-meta', get_post_type() == 'post' ? '' : get_post_type() ); ?>
   </header>
   <div class="entry-summary">
 		<?php the_excerpt(); ?>

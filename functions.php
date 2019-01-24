@@ -17,6 +17,7 @@ $sage_includes = [
   'lib/wrapper.php',   // Theme wrapper class
 	'lib/customizer/customizer.php', // Theme customizer
 	'lib/starter.php',		 //  On theme init functions
+	'lib/widgets.php',		 //  Widgets
 ];
 
 foreach ($sage_includes as $file) {

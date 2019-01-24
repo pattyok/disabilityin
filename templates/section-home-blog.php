@@ -9,8 +9,9 @@ if ($vars['number_posts'] > 0) {
 	);
 	$posts = get_posts($args);
 }
+$vars['link_url'] = get_permalink( get_option( 'page_for_posts' ));
 if ($post_type == 'our_stories') {
-	$vars['link_text']  = 'Read More of Our Stories';
+	$vars['link_url'] = get_post_type_archive_link('our_stories');
 }
 ?>
 
@@ -51,7 +52,7 @@ if ($post_type == 'our_stories') {
 		</div>
 		<?php if (!empty($vars['link_label'])) { ?>
 		<div class="row footer-row">
-			<a class="more-link" href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php echo $vars['link_label'] ?></a>
+			<a class="more-link" href="<?php echo $vars['link_url']; ?>"><?php echo $vars['link_label'] ?></a>
 		</div>
 		<?php } ?>
 	</div>

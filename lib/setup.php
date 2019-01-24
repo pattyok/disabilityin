@@ -380,7 +380,7 @@ function create_custom_post_stories() {
     'description'           => __( 'Post Type Description', 'sage' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', ),
-    'taxonomies'            => array( 'post_tag' ),
+    'taxonomies'            => array( 'story_cats', 'story_tags' ),
     'hierarchical'          => false,
     'public'                => true,
     'show_ui'               => true,
@@ -397,7 +397,65 @@ function create_custom_post_stories() {
 		'show_in_rest' 					=> true,
 		'rewrite'               => array('slug' => 'our-stories'),
 	);
-  register_post_type( 'our_stories', $args );
+	register_post_type( 'our_stories', $args );
+
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name'              => _x( 'Story Categories', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Category', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Categories', 'textdomain' ),
+		'all_items'         => __( 'All Categories', 'textdomain' ),
+		'parent_item'       => __( 'Parent Category', 'textdomain' ),
+		'parent_item_colon' => __( 'Parent Categories:', 'textdomain' ),
+		'edit_item'         => __( 'Edit Category', 'textdomain' ),
+		'update_item'       => __( 'Update Category', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Category', 'textdomain' ),
+		'new_item_name'     => __( 'New Category Name', 'textdomain' ),
+		'menu_name'         => __( 'Story Categories', 'textdomain' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'story-categories' ),
+	);
+
+	register_taxonomy( 'story_cats', array( 'our_stories' ), $args );
+
+	// Add new taxonomy, NOT hierarchical (like tags)
+	$labels = array(
+		'name'                       => _x( 'Story Tags', 'taxonomy general name', 'textdomain' ),
+		'singular_name'              => _x( 'Story Tag', 'taxonomy singular name', 'textdomain' ),
+		'search_items'               => __( 'Search Story Tags', 'textdomain' ),
+		'popular_items'              => __( 'Popular Story Tags', 'textdomain' ),
+		'all_items'                  => __( 'All Story Tags', 'textdomain' ),
+		'parent_item'                => null,
+		'parent_item_colon'          => null,
+		'edit_item'                  => __( 'Edit Story Tag', 'textdomain' ),
+		'update_item'                => __( 'Update Story Tag', 'textdomain' ),
+		'add_new_item'               => __( 'Add New Story Tag', 'textdomain' ),
+		'new_item_name'              => __( 'New Story Tag Name', 'textdomain' ),
+		'separate_items_with_commas' => __( 'Separate Story Tags with commas', 'textdomain' ),
+		'add_or_remove_items'        => __( 'Add or remove Story Tags', 'textdomain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used Story Tags', 'textdomain' ),
+		'not_found'                  => __( 'No Story Tags found.', 'textdomain' ),
+		'menu_name'                  => __( 'Story Tags', 'textdomain' ),
+	);
+
+	$args = array(
+		'hierarchical'          => false,
+		'labels'                => $labels,
+		'show_ui'               => true,
+		'show_admin_column'     => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var'             => true,
+		'rewrite'               => array( 'slug' => 'story-tags' ),
+	);
+
+	register_taxonomy( 'story_tags', 'our_stories', $args );
 
 }
 add_action( 'init', __NAMESPACE__ . '\\create_custom_post_stories', 0 );

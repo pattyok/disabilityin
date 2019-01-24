@@ -1,0 +1,11 @@
+.wp-block-gallery .blocks-gallery-image,
+.wp-block-gallery .blocks-gallery-item {
+  figure {
+    align-items: center;
+    justify-content: center;
+  }
+
+  a img {
+    cursor: pointer;
+  }
+}

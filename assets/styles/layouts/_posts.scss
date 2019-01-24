@@ -5,13 +5,12 @@
   article {
     padding: 1rem 0;
   }
+}
 
-  .col-sidebar-primary {
-    .widget {
-      margin-top: 2rem;
-    }
+.col-sidebar-primary {
+  .widget {
+    margin-bottom: 2rem;
   }
-
 }
 
 article.slide_show {
@@ -81,6 +80,10 @@ article.post,
     li {
       display: inline-block;
     }
+  }
+
+  .post-tags-list {
+    margin-bottom: 0.5rem;
   }
 
   .event-details {

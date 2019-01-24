@@ -23,16 +23,13 @@ while (have_posts()) : the_post(); ?>
     <header>
       <?php echo $archive_link; ?>
       <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php if ( get_post_type() == 'post' ) :
-        get_template_part('templates/entry-meta');
-        endif;
-      ?>
+      <?php get_template_part( 'templates/entry-meta', get_post_type() == 'post' ? '' : get_post_type() ); ?>
     </header>
     <div class="entry-content">
       <?php Extras\get_thumb_with_caption(true); ?>
-      <?php the_content(); ?>
+			<?php the_content(); ?>
+			<?php get_template_part( 'templates/tags-list', get_post_type() == 'post' ? '' : get_post_type() ); ?>
     </div>
-
   </article>
 <?php endwhile; ?>
 <?php if (is_active_sidebar($sidebar)) { ?>
