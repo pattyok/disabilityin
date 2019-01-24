@@ -421,6 +421,7 @@ function create_custom_post_stories() {
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'story-categories' ),
+		'show_in_rest'					=> true,
 	);
 
 	register_taxonomy( 'story_cats', array( 'our_stories' ), $args );
@@ -453,6 +454,7 @@ function create_custom_post_stories() {
 		'update_count_callback' => '_update_post_term_count',
 		'query_var'             => true,
 		'rewrite'               => array( 'slug' => 'story-tags' ),
+		'show_in_rest'					=> true,
 	);
 
 	register_taxonomy( 'story_tags', 'our_stories', $args );
