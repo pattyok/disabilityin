@@ -16,8 +16,9 @@ while (have_posts()) : the_post(); ?>
 
   <?php
   $a_link = get_post_type_archive_link($post->post_type);
-  $post_type = get_post_type_object( get_post_type($post) );
-  $archive_link = '<ul class="archive-link list-inline">' . get_archives_link($a_link, $post_type->labels->name) . '</ul>';
+	$post_type = get_post_type_object( get_post_type($post) );
+	$archive_label = get_theme_mod('home_page_' . $post->post_type . '_title', $post_type->labels->name);
+  $archive_link = '<ul class="archive-link list-inline">' . get_archives_link($a_link, $archive_label) . '</ul>';
   ?>
   <article <?php post_class(); ?>>
     <header>
