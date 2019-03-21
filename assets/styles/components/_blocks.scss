@@ -9,3 +9,25 @@
     cursor: pointer;
   }
 }
+
+@media (min-width: 600px) {
+  .wp-block-column:not(:last-child) {
+    margin-right: 0;
+    padding-right: 32px;
+  }
+
+  .wp-block-column:nth-child(odd) {
+    margin-right: 0;
+    padding-right: 32px;
+  }
+
+  .wp-block-column:not(:first-child) {
+    margin-left: 0;
+    padding-left: 32px;
+  }
+
+  .wp-block-column:nth-child(even) {
+    margin-left: 0;
+    padding-left: 32px;
+  }
+}
