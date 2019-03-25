@@ -127,6 +127,14 @@ function widgets_init() {
     'after_widget'  => '</div>',
     'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
+	]);
+	register_sidebar([
+    'name'          => __('Home Widgets 4', 'sage'),
+    'id'            => 'home-page-widgets-4',
+    'before_widget' => '<div class="widget %1$s %2$s col" id="%1$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2>',
+		'after_title'   => '</h2>',
   ]);
   register_sidebar([
     'name'          => __('Footer Upper', 'sage'),

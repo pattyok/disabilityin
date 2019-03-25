@@ -80,5 +80,13 @@
 			$("#section-home-page-widgets-3").addClass('bg-' + to);
 		});
 	});
+	wp.customize('home-page-widgets-4_background', function(value) {
+		value.bind(function(to) {
+			$("#section-home-page-widgets-4").removeClass (function (index, className) {
+				return (className.match (/(^|\s)bg-\S+/g) || []).join(' ');
+			});
+			$("#section-home-page-widgets-4").addClass('bg-' + to);
+		});
+	});
 
 })(jQuery);

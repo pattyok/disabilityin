@@ -10,6 +10,8 @@
 	include(locate_template('templates/section-home-widgets.php'));
 	$sidebar = 'home-page-widgets-3';
 	include(locate_template('templates/section-home-widgets.php'));
+	$sidebar = 'home-page-widgets-4';
+	include(locate_template('templates/section-home-widgets.php'));
 	$content = get_the_content();
 ?>
 

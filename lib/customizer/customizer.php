@@ -53,6 +53,7 @@ function customize_register($wp_customize) {
 		customize_home_widgets($wp_customize, 'home-page-widgets-1', 'Widgets 1', 60);
 		customize_home_widgets($wp_customize, 'home-page-widgets-2', 'Widgets 2', 200);
 		customize_home_widgets($wp_customize, 'home-page-widgets-3', 'Widgets 3', 210);
+		customize_home_widgets($wp_customize, 'home-page-widgets-4', 'Widgets 4', 220);
 		add_widget_partials($wp_customize);
 
 		//move footer widgets into their own panel

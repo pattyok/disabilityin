@@ -77,6 +77,14 @@ $wp_customize->add_control ( $sidebar_id . '_layout', array(
 
 //TODO CANT FIGURE OUT HOW TO DO THIS DYNAMICALLY (probably can do it if switch to Class Architecture)
 function add_widget_partials($wp_customize) {
+	$wp_customize->selective_refresh->add_partial( 'home-page-widgets-4_title',
+		array(
+		'selector' => '#section-home-page-widgets-4 .title-row',
+		'render_callback' => function() {
+			echo widget_title_render_callback('home-page-widgets-4'); //no luck on assigning this parameter dynamically
+		},
+		'fallback_refresh' => true
+	));
 	$wp_customize->selective_refresh->add_partial( 'home-page-widgets-3_title',
 		array(
 		'selector' => '#section-home-page-widgets-3 .title-row',
@@ -157,6 +165,12 @@ function get_home_page_widget_defaults() {
 		'home-page-widgets-3' => [
 			'hide'  			=> false,
 			'title' 			=> 'Widgets 3',
+			'layout' 			=> 'stacked',
+			'background' 	=> 'white',
+		],
+		'home-page-widgets-4' => [
+			'hide'  			=> false,
+			'title' 			=> 'Widgets 4',
 			'layout' 			=> 'stacked',
 			'background' 	=> 'white',
 		],
